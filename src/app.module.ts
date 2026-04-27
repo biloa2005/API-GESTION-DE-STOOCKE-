@@ -5,6 +5,10 @@ import { AccountModule } from './account/account.module';
 import { TransactionService } from './transaction/transaction.service';
 import { TransactionModule } from './transaction/transaction.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ProduitModule } from './produit/produit.module';
+import { UtilisateurModule } from './utilisateur/utilisateur.module';
+import { DetteModule } from './dette/dette.module';
+import { AchatModule } from './achat/achat.module';
 
 
 @Module({
@@ -24,6 +28,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true, // Attention : à désactiver en production (risque de perte de données)
     }),
+    ProduitModule,
+    UtilisateurModule,
+    DetteModule,
+    AchatModule,
   ],
 
 
