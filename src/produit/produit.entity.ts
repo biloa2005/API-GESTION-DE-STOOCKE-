@@ -16,6 +16,7 @@ export class Produit{
  })   
  @JoinColumn ({name:"Id_utilisateur"})
  utilisateur:Utilisateur;
+ //
     //constructeur
     constructor(nom:string,prix:number,quantite:number,utilisateur: Utilisateur){
         this.nom=nom;

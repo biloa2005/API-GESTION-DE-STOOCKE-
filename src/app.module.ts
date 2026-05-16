@@ -9,12 +9,23 @@ import { ProduitModule } from './produit/produit.module';
 import { UtilisateurModule } from './utilisateur/utilisateur.module';
 import { DetteModule } from './dette/dette.module';
 import { AchatModule } from './achat/achat.module';
+import { DamageModule } from './damage/damage.module';
+import { DebtModule } from './debt/debt.module';
+import { HistoricalModule } from './historical/historical.module';
+
+import { ProductRuinModule } from './product-ruin/product-ruin.module';
+import { ProductRuinService } from './product-ruin/product-ruin.service';
+import { ProduceBuyModule } from './produce-buy/produce-buy.module';
+import { DebtHistoricalModule } from './debt-historical/debt-historical.module';
+import { ProduceDebtModule } from './produce-debt/produce-debt.module';
+
+
 
 
 @Module({
   
   controllers: [AppController],
-  providers: [AppService, TransactionService],
+  providers: [AppService],
   imports: [
     AccountModule,
      TransactionModule,
@@ -32,6 +43,15 @@ import { AchatModule } from './achat/achat.module';
     UtilisateurModule,
     DetteModule,
     AchatModule,
+    DamageModule,
+    DebtModule,
+    HistoricalModule,
+    ProductRuinModule,
+    ProduceBuyModule,
+    DebtHistoricalModule,
+    ProduceDebtModule,
+    
+    
   ],
 
 
