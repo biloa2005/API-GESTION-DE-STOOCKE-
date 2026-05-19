@@ -50,5 +50,16 @@ async dropAmount(id:number,amount:number):Promise<number>{
     }
     return newamound
 }
+//saved debt drop
+async savedDropAmound(id:number,amount:number){
+    const newamount=await this.dropAmount(id,amount);
+    return this.repo.update(id,{amount:newamount});
+}
+//saved add debt
+async savedAddAmound(id:number,amount:number){
+    const newamount=await this.addAmount(id,amount);
+    return this.repo.update(id,{amount:newamount});
+}
+
 
 }

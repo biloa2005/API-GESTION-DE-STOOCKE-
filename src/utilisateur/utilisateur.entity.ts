@@ -10,7 +10,7 @@ export class Utilisateur{
     email:string;
 @Column()
 password:string;
-//lien entre mes dette et produit
+//lien entre mes dette 
 @OneToMany(()=>MyDebt, (mydebt)=>mydebt.utilisateur)
 mydebt:MyDebt[]
 // Dans utilisateur
