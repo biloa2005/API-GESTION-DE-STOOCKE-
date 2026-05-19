@@ -18,6 +18,7 @@ import { ProductRuinService } from './product-ruin/product-ruin.service';
 import { ProduceBuyModule } from './produce-buy/produce-buy.module';
 import { DebtHistoricalModule } from './debt-historical/debt-historical.module';
 import { ProduceDebtModule } from './produce-debt/produce-debt.module';
+import { MydebtModule } from './mydebt/mydebt.module';
 
 
 
@@ -50,6 +51,7 @@ import { ProduceDebtModule } from './produce-debt/produce-debt.module';
     ProduceBuyModule,
     DebtHistoricalModule,
     ProduceDebtModule,
+    MydebtModule,
     
     
   ],
