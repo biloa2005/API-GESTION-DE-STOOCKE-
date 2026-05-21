@@ -1,4 +1,44 @@
-import { Controller } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, ParseIntPipe, Patch, Post,Param, Query, Delete } from '@nestjs/common';
+import { MydebtService } from './mydebt.service';
+import { create } from 'domain';
 
 @Controller('mydebt')
-export class MydebtController {}
+export class MydebtController {
+    constructor(
+        private mydebt:MydebtService
+    ){
+    }
+    @HttpCode(200)
+        @Get()
+        findAll(){
+            return this.mydebt.findAll()
+        }
+        @HttpCode(201)
+        
+        @Post()
+        create(@Body() body){
+          return this.mydebt.createMyDebt(body.name,body.amount,body.utilisateur)
+        }
+          
+        @Patch('drop')
+        dropAmount(
+            @Query('id',ParseIntPipe) id:number,
+            @Query('amount',ParseIntPipe) amount:number
+        ){
+          return this.mydebt.savedDropAmound(id,amount)
+        }  
+        @Patch('add')
+        addDebt(
+            @Query('id',ParseIntPipe) id:number,
+            @Query('amount',ParseIntPipe) amount:number
+        ){
+return this.mydebt.savedAddAmound(id,amount)
+        }
+        @Delete(':id/delete')
+        deleteMydebt(@Param('id',ParseIntPipe) id:number){
+            return this.mydebt.remove(id)
+        }
+        
+
+
+}

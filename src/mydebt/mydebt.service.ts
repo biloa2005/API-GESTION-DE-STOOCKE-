@@ -60,6 +60,9 @@ async savedAddAmound(id:number,amount:number){
     const newamount=await this.addAmount(id,amount);
     return this.repo.update(id,{amount:newamount});
 }
+async findAll(){
+    return this.repo.find()
+}
 
 
 }

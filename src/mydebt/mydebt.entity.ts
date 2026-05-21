@@ -10,6 +10,7 @@ name:string;
 @Column()
 amount:number;
 @Column()
+//total debt=rest
 rest:number;
 @ManyToOne(()=>Utilisateur,(utilisateur)=>utilisateur.mydebt,{onDelete:'CASCADE',onUpdate:'CASCADE'})
 @JoinColumn({name:"Id_utilisateur"})
@@ -18,6 +19,7 @@ constructor(name:string,amount:number,utilisateur:Utilisateur){
     this.name=name;
     this.amount=amount;
     this.utilisateur=utilisateur
+    this.rest=amount
     
 }
 }

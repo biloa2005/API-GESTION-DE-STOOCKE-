@@ -1,4 +1,4 @@
-import { Body, Controller,Get,Param,Patch,Post } from '@nestjs/common';
+import { Body, Controller,Get,Param,ParseIntPipe,Patch,Post } from '@nestjs/common';
 import { ProduitService } from './produit.service';
 
 @Controller('produit')
@@ -14,7 +14,7 @@ export class ProduitController {
     }
     //UPDATE NUMBER OF PRODUCE remove 
     @Patch(':id/update')
-    updateQuantity(@Param('id') id:number,@Body() body){
+    updateQuantity(@Param('id',ParseIntPipe) id:number,@Body() body){
         return this.produit.updateStoock(body.quantite,id)
     }
     //update number of produce add
