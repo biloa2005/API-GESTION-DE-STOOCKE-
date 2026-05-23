@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Historical } from './historical.entity';
@@ -16,5 +16,14 @@ export class HistoricalService {
     //findAll
     findAll(){
         return this.repo.find();
+    }
+    //delete the historical
+      
+    async deleteHistorical(id:number){
+        const result=await this.repo.delete(id)
+if(result.affected===0){
+    throw new NotFoundException('historique non trouver');
+}
+return {delete:true}
     }
 }

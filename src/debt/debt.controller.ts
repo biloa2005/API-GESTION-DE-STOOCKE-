@@ -1,4 +1,4 @@
-import { Controller,Get,Post,Body } from '@nestjs/common';
+import { Controller,Get,Post,Body, Delete, ParseIntPipe, Param } from '@nestjs/common';
 import { DebtService } from './debt.service';
 @Controller('debt')
 export class DebtController {
@@ -14,5 +14,9 @@ export class DebtController {
         @Get()
          findAll(){
         return this.service.findAll()
+    }
+    @Delete(":id/delete")
+    deleleDebt(@Param("id",ParseIntPipe) id:number){
+        return this.service.deleteDebt(id)
     }
 }

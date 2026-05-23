@@ -1,4 +1,4 @@
-import { Body, Controller,Get,Param,ParseIntPipe,Patch,Post } from '@nestjs/common';
+import { Body, Controller,Delete,Get,Param,ParseIntPipe,Patch,Post } from '@nestjs/common';
 import { ProduitService } from './produit.service';
 
 @Controller('produit')
@@ -22,6 +22,9 @@ export class ProduitController {
     addNumber(@Param('id') id:number,@Body() body){
         return this.produit.saveProduceAdd(id,body.quantite);
     }
-
+@Delete(':id/delete')
+deleteProduce(@Param('id',ParseIntPipe) id:number){
+    return this.produit.deleteProduce(id);
+}
 
 }

@@ -1,4 +1,4 @@
-import { Controller,Post,Get,Body } from '@nestjs/common';
+import { Controller,Post,Get,Body, Delete, ParseIntPipe, Param } from '@nestjs/common';
 import { DamageService } from './damage.service';
 @Controller('damage')
 export class DamageController {
@@ -13,4 +13,8 @@ export class DamageController {
     findAll(){
         return this.service.findAll()
     }
+     @Delete(":id/delete")
+        deleteMydebt(@Param('id',ParseIntPipe) id:number){
+            return this.service.deleteProduceDamaged(id)
+        }
 }

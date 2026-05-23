@@ -85,5 +85,12 @@ async findProduceById(id:number){
 return produce
 
 }
-    
+    //delete produce
+   async deleteProduce(id:number){
+      const  result = await this.repo.delete(id);
+if(result.affected===0){
+ throw new NotFoundException("produit non trouver");
+}
+return {delete:true}
+    }
 }

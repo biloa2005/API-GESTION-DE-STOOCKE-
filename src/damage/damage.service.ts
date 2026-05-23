@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import {Damage} from "./damage.entity"
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -27,5 +27,13 @@ private readonly produceruin:ProductRuinService
     //find
     findAll(){
         return this.repo.find()
+    }
+    //delete produce damage
+    async deleteProduceDamaged(id:number){
+        const result=await this.repo.delete(id)
+if(result.affected===0){
+    throw new NotFoundException('produit deteriorer non trouver');
+}
+return {delete:true}
     }
 }

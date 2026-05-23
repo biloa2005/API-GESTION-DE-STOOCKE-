@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Debt } from './debt.entity';
 import {Repository} from "typeorm"
 import { InjectRepository } from '@nestjs/typeorm';
@@ -49,11 +49,14 @@ export class DebtService {
 return b;
     } 
    
-
-
-
-
-
+//delete debt of the client
+    async deleteDebt(id:number){
+        const result=await this.repo.delete(id)
+if(result.affected===0){
+    throw new NotFoundException('debt non trouver');
+}
+return {delete:true}
+    }
     //find ALL DEBT
     findAll(){
         return this.repo.find();
