@@ -1,5 +1,6 @@
 import { Controller,Get,Post,Body, Delete, ParseIntPipe, Param } from '@nestjs/common';
 import { DebtService } from './debt.service';
+import { DebtDto } from './debt.dto';
 @Controller('debt')
 export class DebtController {
     constructor(
@@ -8,7 +9,7 @@ export class DebtController {
         
     }
     @Post()
-        create(@Body() body){
+        create(@Body() body:DebtDto){
             return this.service.create(body.nom,body.date,body.quantiter,body.phone,body.id)
         }
         @Get()

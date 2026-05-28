@@ -1,6 +1,7 @@
 import { Body, Controller, Get, HttpCode, ParseIntPipe, Patch, Post,Param, Query, Delete } from '@nestjs/common';
 import { MydebtService } from './mydebt.service';
 import { create } from 'domain';
+import { MydebtDto} from './mydebt.dto';
 
 @Controller('mydebt')
 export class MydebtController {
@@ -16,7 +17,7 @@ export class MydebtController {
         @HttpCode(201)
         
         @Post()
-        create(@Body() body){
+        create(@Body() body:MydebtDto){
           return this.mydebt.createMyDebt(body.name,body.amount,body.utilisateur)
         }
           

@@ -1,11 +1,12 @@
 import { Body, Controller,Delete,Get,Param,ParseIntPipe,Patch,Post } from '@nestjs/common';
 import { ProduitService } from './produit.service';
+import { ProduitDto } from './produit.dto';
 
 @Controller('produit')
 export class ProduitController {
     constructor(private produit: ProduitService){}
     @Post()
-    Create(@Body() body){
+    Create(@Body() body:ProduitDto){
         return this.produit.create(body.nom,body.prix,body.quantiter,body.user);
     }
     @Get(':id/number')
