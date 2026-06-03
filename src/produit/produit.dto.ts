@@ -2,7 +2,7 @@ import { IsNotEmpty, IsNumber, IsString } from "class-validator";
 import { Utilisateur } from "src/utilisateur/utilisateur.entity";
 
 export class ProduitDto{
-    @IsNotEmpty()
+    @IsNotEmpty({message:"le nom du produit est obligatoire"})
     @IsString()  
     nom:string;
     @IsNotEmpty()

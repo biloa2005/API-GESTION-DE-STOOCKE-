@@ -93,4 +93,18 @@ if(result.affected===0){
 }
 return {delete:true}
     }
+    //update produce
+    async updateOneProduce(Id_produit:number,nom:string,prix:number,quantiter:number):Promise<Produit>{
+ const produce=  await this.repo.findOne({
+    where:{Id_produit}
+});
+if(!produce){
+    throw new NotFoundException("produit a modifier non trouver")
+}
+ produce.nom=nom;
+produce.prix=prix;
+produce.quantite=quantiter
+return this.repo.save(produce)
+
+    } 
 }

@@ -13,7 +13,8 @@ export class Achat {
     quantiter:number;
     //constructeur
     constructor(date:Date, nom:string, prix:number, quantiter:number){
-      this.date=date;
+      
+       this.date=date;
       this.nom=nom;
       this.prix=prix;
       this.quantiter=quantiter 

@@ -25,4 +25,6 @@ export class Produit{
         this.utilisateur=utilisateur;
 
     }
+
+
 }
