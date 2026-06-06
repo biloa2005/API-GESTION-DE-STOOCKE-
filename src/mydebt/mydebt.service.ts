@@ -63,6 +63,19 @@ async savedAddAmound(id:number,amount:number){
 async findAll(){
     return this.repo.find()
 }
+//modify debt
+async updateMyDebt(id:number,amount:number,name:string,rest:number){
+    const debt= await this.repo.createQueryBuilder('MyDebt')
+    .where("id=id",{id:id})
+    .getOne()
+    if(!debt){
+        throw new NotFoundException("produit a modifier non trouver")
+    }
+    debt.amount=amount;
+    debt.name=name;
+    debt.rest=rest
+    return this.repo.save(debt)
+}
 
 
 }

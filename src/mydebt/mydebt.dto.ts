@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
 import { Utilisateur } from "src/utilisateur/utilisateur.entity";
 
 export class MydebtDto{
@@ -8,6 +8,7 @@ export class MydebtDto{
 @IsNotEmpty({message:"indiquer le nom du creansier"})
 @IsString({message:"le nom doit etre un string"})
     name:string;
-    
+@IsNotEmpty({message:"entrer une valeur a pour l'id utilisateur"})
     utilisateur:Utilisateur
+  
 }

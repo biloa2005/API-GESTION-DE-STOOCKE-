@@ -2,6 +2,8 @@ import { Body, Controller, Get, HttpCode, ParseIntPipe, Patch, Post,Param, Query
 import { MydebtService } from './mydebt.service';
 import { create } from 'domain';
 import { MydebtDto} from './mydebt.dto';
+import { UpdateMyDebtDto } from './mydebtupdate.dto';
+
 
 @Controller('mydebt')
 export class MydebtController {
@@ -39,6 +41,10 @@ return this.mydebt.savedAddAmound(id,amount)
         deleteMydebt(@Param('id',ParseIntPipe) id:number){
             return this.mydebt.remove(id)
         }
+        @Patch(':id/updatedmydebt')
+updateMyDebt(@Param('id',ParseIntPipe) id:number, @Body() body:UpdateMyDebtDto){
+    return this.mydebt.updateMyDebt(id,body.amount,body.name,body.rest)
+}        
         
 
 

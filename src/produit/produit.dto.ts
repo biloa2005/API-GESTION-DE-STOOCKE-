@@ -11,6 +11,6 @@ export class ProduitDto{
         @IsNotEmpty()
         @IsNumber()
         quantiter:number;
-        @IsNotEmpty()
+        
         user:Utilisateur;
 }
