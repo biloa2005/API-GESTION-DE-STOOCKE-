@@ -19,6 +19,8 @@ import { ProduceBuyModule } from './produce-buy/produce-buy.module';
 import { DebtHistoricalModule } from './debt-historical/debt-historical.module';
 import { ProduceDebtModule } from './produce-debt/produce-debt.module';
 import { MydebtModule } from './mydebt/mydebt.module';
+import { AiModule } from './ai/ai.module';
+import { ConfigModule } from '@nestjs/config';
 
 
 
@@ -28,7 +30,10 @@ import { MydebtModule } from './mydebt/mydebt.module';
   controllers: [AppController],
   providers: [AppService],
   imports: [
-    AccountModule,
+    ConfigModule.forRoot({
+      isGlobal:true
+    })
+    ,AccountModule,
      TransactionModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
@@ -52,6 +57,7 @@ import { MydebtModule } from './mydebt/mydebt.module';
     DebtHistoricalModule,
     ProduceDebtModule,
     MydebtModule,
+    AiModule,
     
     
   ],
