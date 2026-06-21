@@ -76,6 +76,14 @@ async updateMyDebt(id:number,amount:number,name:string,rest:number){
     debt.rest=rest
     return this.repo.save(debt)
 }
+//total of my debt
+async totalMyDebt():Promise<number>{
+    const response= await this.repo
+    .createQueryBuilder("mydebt")
+    .select("SUM(mydebt.rest)",'total')
+    .getRawOne();
+      return Number(response.total || 0 ); 
+}
 
 
 }

@@ -44,7 +44,11 @@ return this.mydebt.savedAddAmound(id,amount)
         @Patch(':id/updatedmydebt')
 updateMyDebt(@Param('id',ParseIntPipe) id:number, @Body() body:UpdateMyDebtDto){
     return this.mydebt.updateMyDebt(id,body.amount,body.name,body.rest)
-}        
+}     
+@Get('total')
+totalMyDebt(){
+    return this.mydebt.totalMyDebt()
+}   
         
 
 

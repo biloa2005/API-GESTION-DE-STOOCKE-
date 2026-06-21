@@ -16,6 +16,10 @@ export class DebtController {
          findAll(){
         return this.service.findAll()
     }
+    @Get("total")
+    totalDebt(){
+        return this.service.totalDebt();
+    }
     @Delete(":id/delete")
     deleleDebt(@Param("id",ParseIntPipe) id:number){
         return this.service.deleteDebt(id)

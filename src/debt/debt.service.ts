@@ -61,4 +61,15 @@ return {delete:true}
     findAll(){
         return this.repo.find();
     }
+    //total of all debt
+async totalDebt():Promise<number>{
+    const res= await this.repo
+    .createQueryBuilder('debt')
+    .select("SUM(debt.amount)", 'total');
+
+     console.log(res.getSql());
+const result=await res.getRawOne();
+     return Number(result.total || 0);
+
+    }
 }
