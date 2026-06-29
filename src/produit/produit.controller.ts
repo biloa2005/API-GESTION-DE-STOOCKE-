@@ -32,5 +32,9 @@ deleteProduce(@Param('id',ParseIntPipe) id:number){
 updateproduce(@Param('id',ParseIntPipe) id:number,@Body() body:ProduitDto){
 return this.produit.updateOneProduce(id,body.nom,body.prix,body.quantiter)
 }
+@Get('total')
+totalProduce(){
+    return this.produit.numberProduce()
+}
 
 }

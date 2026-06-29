@@ -18,4 +18,8 @@ export class DamageController {
         deleteMydebt(@Param('id',ParseIntPipe) id:number){
             return this.service.deleteProduceDamaged(id)
         }
+        @Get("total")
+        totalDamaged(){
+            return this.service.totalDamaged()
+        }
 }

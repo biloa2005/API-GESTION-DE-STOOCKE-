@@ -36,4 +36,12 @@ if(result.affected===0){
 }
 return {delete:true}
     }
+    //total produce damaged
+    async totalDamaged():Promise<number>{
+        const resp=await this.repo
+        .createQueryBuilder("damage")
+        .select("SUM(damage.quantiter)","total")
+        .getRawOne()
+        return Number(resp.total || 0)
+    }
 }

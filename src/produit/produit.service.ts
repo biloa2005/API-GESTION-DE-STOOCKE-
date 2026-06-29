@@ -107,4 +107,10 @@ produce.quantite=quantiter
 return this.repo.save(produce)
 
     } 
+
+    //number of produce 
+  async  numberProduce():Promise<number>{
+ const num= await this.repo.count();
+return num; 
+}
 }
